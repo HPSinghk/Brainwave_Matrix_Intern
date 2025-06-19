@@ -3,7 +3,7 @@ const cors = require("cors");
 const path = require("path");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const connectDB = require("./config/db");
+const connectDB = require("./src/config/db.js");
 
 // Load env vars
 dotenv.config();
@@ -32,10 +32,10 @@ app.use((req, res, next) => {
 });
 
 // Define routes
-app.use("/api/auth", require("./routes/auth.routes.js"));
-app.use("/api/users", require("./routes/users.routes.js"));
-app.use("/api/categories", require("./routes/categories.routes.js"));
-app.use("/api/cashflow", require("./routes/cashflow.routes.js"));
+app.use("/api/auth", require("./src/routes/auth.routes.js"));
+app.use("/api/users", require("./src/routes/users.routes.js"));
+app.use("/api/categories", require("./src/routes/categories.routes.js"));
+app.use("/api/cashflow", require("./src/routes/cashflow.routes.js"));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
